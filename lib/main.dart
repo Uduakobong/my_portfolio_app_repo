@@ -30,17 +30,16 @@ class PortfolioApp extends StatelessWidget {
           children: [
             CircleAvatar(
               backgroundImage: AssetImage('assets/bye-2.jpg'),
-              radius: 200.0,
-
+              radius: 100.0,
             ),
             Divider(
-              height: 50.0,
+              height: 30.0,
             ),
             Text(
               'Uduakobong Umoren',
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 40.0,
+                  fontSize: 30.0,
                   letterSpacing: 1.5,
                   fontWeight: FontWeight.bold),
             ),
@@ -49,68 +48,76 @@ class PortfolioApp extends StatelessWidget {
               'Mobile Developer - Flutter/Dart',
               style: TextStyle(
                 color: Colors.black54,
-                fontSize: 35.0,
+                fontSize: 25.0,
                 letterSpacing: 1.5,
                 fontStyle: FontStyle.italic,
               ),
             ),
-            SizedBox(height: 200.0), //leaves space between text
-            Row(
-              children: [
-                Icon(
-                  Icons.email,
-                  size: 50.0,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'biggeststation@gmail.com',
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    fontStyle: FontStyle.italic,
-                    letterSpacing: 1.0,
+            SizedBox(height: 50.0), //leaves space between text
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Expanded(
+                  child: Column(
+                    children: [
+                      DetailsFew(
+                        iconData: Icons.link,
+                        title: 'GitHub',
+                        subtitle: 'https://github.com/Uduakobong',
+                      ),
+                      DetailsFew(
+                        iconData: Icons.phone,
+                        title: 'Phone',
+                        subtitle: '+234 806*****46',
+                      ),
+                      DetailsFew(
+                        iconData: Icons.email,
+                        title: 'Email',
+                        subtitle: 'biggeststation@gmail.com',
+                      ),
+                      DetailsFew(
+                        iconData: Icons.widgets_outlined,
+                        title: 'Path',
+                        padding: 12.0,
+                        subtitle: 'Flutter/Dart - Mobile',
+                      ),
+                    ],
                   ),
-                )
-              ],
-            ),
-            SizedBox(height: 10.0),
-            Row(
-              children: [
-                Icon(
-                    Icons.phone,
-                  size: 50.0,
                 ),
-                SizedBox(width: 10.0),
-                Text(
-                  '+234806*****46',
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    fontStyle: FontStyle.italic,
-                    letterSpacing: 1.0,
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 10.0),
-            Row(
-              children: [
-                Icon(
-                    Icons.house_rounded,
-                  size: 50.0,
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'B# Devz, Banking Layout, Jos.',
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    fontStyle: FontStyle.italic,
-                    letterSpacing: 1.0,
-                  ),
-                )
-              ],
+              ),
             ),
           ],
         ),
       ),
     ));
+  }
+}
+
+class DetailsFew extends StatelessWidget {
+  final iconData;
+  final title;
+  final subtitle;
+  final double padding;
+
+  const DetailsFew({this.iconData, this.title, this.subtitle, this.padding});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.0),
+          color: Color(0x22607D8B),
+        ),
+        child: ListTile(
+          contentPadding:
+              EdgeInsets.symmetric(vertical: padding ?? 0.0, horizontal: 16.0),
+          leading: Icon(iconData),
+          title: Text(title),
+          subtitle: Text(subtitle),
+        ),
+      ),
+    );
   }
 }
