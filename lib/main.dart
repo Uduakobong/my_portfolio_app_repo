@@ -108,7 +108,6 @@ class DetailsFew extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.0),
-          color: Color(0x22607D8B),
         ),
         child: ListTile(
           contentPadding:
